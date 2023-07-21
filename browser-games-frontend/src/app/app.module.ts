@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { WordleComponent } from './components/wordle/wordle.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LetterComponent } from './components/wordle/letter/letter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WordleComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LetterComponent
   ],
   imports: [
     BrowserModule,
