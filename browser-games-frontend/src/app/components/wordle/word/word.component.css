@@ -6,3 +6,15 @@
 .letter-box {
     margin: 0px 2px 0px 2px;
 }
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: gray
+}
+
+.wrong-position {
+    background-color: yellow
+}

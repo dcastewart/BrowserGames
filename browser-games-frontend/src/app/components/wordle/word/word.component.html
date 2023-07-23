@@ -1,5 +1,9 @@
 <div class="word">
-    <app-letter class="letter-box"></app-letter>
+    <app-letter class="letter-box" [ngClass]="{
+        'correct' : false,
+        'incorrect' : false,
+        'wrong-position' : false
+    }"></app-letter>
     <app-letter class="letter-box"></app-letter>
     <app-letter class="letter-box"></app-letter>
     <app-letter class="letter-box"></app-letter>
