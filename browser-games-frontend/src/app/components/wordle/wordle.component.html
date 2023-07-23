@@ -1,8 +1,5 @@
 <div>
-    <app-word></app-word>
-    <app-word></app-word>
-    <app-word></app-word>
-    <app-word></app-word>
-    <app-word></app-word>
-    <app-word></app-word>
+    <div *ngFor="let word of this.guesses">
+        <app-word [word]="word"></app-word>
+    </div>
 </div>

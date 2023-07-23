@@ -2,7 +2,10 @@ export class Word {
     guess: Array<Letter>;
 
     constructor(solution: string) {
-        this.guess = Array(solution.trim().length).fill(new Letter)
+        this.guess = Array(solution.trim().length)
+        for(let i = 0; i < this.guess.length; i++) {
+            this.guess[i] =  new Letter()
+        }
     }
 
     public checkSolution(solution: string) {
@@ -24,7 +27,7 @@ class Letter {
     state: LetterState = LetterState.InProgress
 }
 
-enum LetterState {
+export enum LetterState {
     InProgress,
     Incorrect,
     WrongPosition,

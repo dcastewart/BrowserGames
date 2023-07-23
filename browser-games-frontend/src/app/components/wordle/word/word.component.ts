@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Word } from 'src/app/models/wordle/word';
+import { LetterState } from 'src/app/models/wordle/word';
 
 @Component({
   selector: 'app-word',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./word.component.css']
 })
 export class WordComponent {
+  public get letterState(): typeof LetterState {
+    return LetterState
+  }
+
+  @Input() word: Word = new Word("")
 
 }

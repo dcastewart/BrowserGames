@@ -1,11 +1,11 @@
 <div class="word">
-    <app-letter class="letter-box" [ngClass]="{
-        'correct' : false,
-        'incorrect' : false,
-        'wrong-position' : false
-    }"></app-letter>
-    <app-letter class="letter-box"></app-letter>
-    <app-letter class="letter-box"></app-letter>
-    <app-letter class="letter-box"></app-letter>
-    <app-letter class="letter-box"></app-letter>
+  <app-letter
+    *ngFor="let letter of this.word.guess"
+    class="letter-box"
+    [ngClass]="{
+      'correct': letter.state == letterState.Correct,
+      'incorrect': letter.state == letterState.Incorrect,
+      'wrong-position': letter.state == letterState.WrongPosition,
+    }"
+  ></app-letter>
 </div>
