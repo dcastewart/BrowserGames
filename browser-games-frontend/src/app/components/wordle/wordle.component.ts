@@ -21,28 +21,29 @@ export class WordleComponent {
     this.guesses[0].guess[2].letter = 'o';
     this.guesses[0].guess[3].letter = 'l';
     this.guesses[0].guess[4].letter = 'e';
-    this.guesses[0].checkSolution('words');
+    this.submitGuess();
+    this.submitGuess();
   }
 
   submitGuess() {
     this.guesses[this.currentIndex].checkSolution(this.solution);
+    this.currentIndex++;
     this.guesses[this.currentIndex].guess.forEach((value) => {
       if (value.state != LetterState.Correct) {
-        this.currentIndex++;
-        if(this.currentIndex >= this.guesses.length) {
-          this.defeat()
-          return
+        if (this.currentIndex >= this.guesses.length) {
+          this.defeat();
+          return;
         }
         return;
       }
     });
-    this.victory()
+    this.victory();
   }
 
   victory() {
     // TODO - implement victory logic
   }
-  
+
   defeat() {
     // TODO - implement loss logic
   }
