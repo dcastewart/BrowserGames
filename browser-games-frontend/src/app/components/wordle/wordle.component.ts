@@ -36,17 +36,17 @@ export class WordleComponent {
 
   submitGuess() {
     this.guesses[this.currentIndex].checkSolution(this.solution);
-    this.currentIndex++;
+    let isVictory: boolean = true
     this.guesses[this.currentIndex].guess.forEach((value) => {
       if (value.state != LetterState.Correct) {
-        if (this.currentIndex >= this.guesses.length) {
-          this.defeat();
-          return;
-        }
-        return;
+        isVictory = false
       }
     });
-    this.victory();
+    this.currentIndex++;
+    if(isVictory) this.victory()
+    else if (this.currentIndex >= this.guesses.length) {
+      this.defeat();
+    }
   }
 
   victory() {
