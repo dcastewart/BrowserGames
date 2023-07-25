@@ -15,10 +15,15 @@ export class WordleComponent {
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     console.log(event);
-
     if (event.key == 'Enter') {
       this.submitGuess();
     }
+    else if(event.key == 'Backspace'){
+      this.guesses[this.currentIndex].deleteLetter()
+    }
+    else if((event.key >= 'a' && event.key <= 'z') || (event.key >= 'A' && event.key <= 'Z')){
+      this.guesses[this.currentIndex].typeLetter(event.key.toUpperCase())
+    }  
   }
 
   ngOnInit() {
@@ -35,6 +40,8 @@ export class WordleComponent {
   }
 
   submitGuess() {
+    if(!this.guesses[this.currentIndex].isValid()) return;
+    
     this.guesses[this.currentIndex].checkSolution(this.solution);
     let isVictory: boolean = true
     this.guesses[this.currentIndex].guess.forEach((value) => {

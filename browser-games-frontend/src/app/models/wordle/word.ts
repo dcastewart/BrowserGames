@@ -9,6 +9,7 @@ export class Word {
     }
 
     public checkSolution(solution: string) {
+        solution = solution.toUpperCase()
         for(let i = 0; i < this.guess.length; i++) {
             if(this.guess[i].letter == solution.charAt(i)){
                 this.guess[i].state = LetterState.Correct
@@ -18,6 +19,34 @@ export class Word {
             } else {
                 this.guess[i].state = LetterState.Incorrect
             }
+        }
+    }
+
+    public typeLetter(newLetter: string){
+        for(let i = 0; i < this.guess.length; i++){
+            if(this.guess[i].letter == ""){
+                console.log(this.guess[i].letter)
+                console.log(newLetter)
+                this.guess[i].letter = newLetter
+                return
+            }
+        }
+    }
+
+    public deleteLetter() {
+        for(let i = this.guess.length - 1; i >= 0; i--) {
+            if(this.guess[i].letter != "") {
+                this.guess[i].letter = ""
+                return
+            }
+        }
+    }
+
+    public isValid(): boolean {
+        if(this.guess[this.guess.length - 1].letter == ""){
+            return false
+        } else {
+            return true
         }
     }
 }
