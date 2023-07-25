@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { LetterState, Word } from 'src/app/models/wordle/word';
 
 @Component({
@@ -11,6 +11,15 @@ export class WordleComponent {
 
   guesses: Array<Word> = Array(6);
   private currentIndex: number = 0;
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    console.log(event);
+
+    if (event.key == 'Enter') {
+      this.submitGuess();
+    }
+  }
 
   ngOnInit() {
     for (let i = 0; i < this.guesses.length; i++) {
@@ -41,10 +50,10 @@ export class WordleComponent {
   }
 
   victory() {
-    // TODO - implement victory logic
+    console.log('Victory');
   }
 
   defeat() {
-    // TODO - implement loss logic
+    console.log('Defeat');
   }
 }
