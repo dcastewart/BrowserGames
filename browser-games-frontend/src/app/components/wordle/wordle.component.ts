@@ -30,13 +30,6 @@ export class WordleComponent {
     for (let i = 0; i < this.guesses.length; i++) {
       this.guesses[i] = new Word(this.solution);
     }
-    this.guesses[0].guess[0].letter = 'w';
-    this.guesses[0].guess[1].letter = 'h';
-    this.guesses[0].guess[2].letter = 'o';
-    this.guesses[0].guess[3].letter = 'l';
-    this.guesses[0].guess[4].letter = 'e';
-    this.submitGuess();
-    this.submitGuess();
   }
 
   submitGuess() {
