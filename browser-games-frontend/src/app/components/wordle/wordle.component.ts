@@ -21,9 +21,15 @@ export class WordleComponent {
     else if(event.key == 'Backspace'){
       this.guesses[this.currentIndex].deleteLetter()
     }
-    else if((event.key >= 'a' && event.key <= 'z') || (event.key >= 'A' && event.key <= 'Z')){
+    else if(isLetter(event.key)){
       this.guesses[this.currentIndex].typeLetter(event.key.toUpperCase())
     }  
+
+
+    function isLetter(key: String) {
+      if(key.length > 1) return false
+      return (key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z');
+    }
   }
 
   ngOnInit() {
