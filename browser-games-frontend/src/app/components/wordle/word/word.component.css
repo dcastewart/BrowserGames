@@ -1,6 +1,8 @@
 .word {
     display: Flex;
     padding: 5px;
+    margin: auto;
+    width:fit-content
 }
 
 .letter-box {
