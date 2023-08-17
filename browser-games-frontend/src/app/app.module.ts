@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LetterComponent } from './components/wordle/letter/letter.component';
 import { WordComponent } from './components/wordle/word/word.component';
+import { MinesweeperComponent } from './components/minesweeper/minesweeper.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WordComponent } from './components/wordle/word/word.component';
     HomeComponent,
     PageNotFoundComponent,
     LetterComponent,
-    WordComponent
+    WordComponent,
+    MinesweeperComponent
   ],
   imports: [
     BrowserModule,
