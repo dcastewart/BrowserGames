@@ -6,8 +6,22 @@ export class MineField {
 
     constructor(width: number, height: number, mineCount: number) {
         this.mineField = Array(width)
+        //create empty array
         for(let i = 0; i < this.mineField.length; i++) {
             this.mineField[i] = Array(height)
+        }
+
+        //populate mines using generatedLocations
+        let generatedLocations = this.generateLocations(width, height, mineCount)
+        generatedLocations.forEach( (mineLocation) => {
+            this.mineField[Math.floor(mineLocation/width)][mineLocation % width] = new MSTile(true)
+        })
+
+        //populate emtpy tiles
+        for(let x = 0; x < this.mineField.length; x++) {
+            for(let y = 0; y < this.mineField[x].length; y++){
+                if(this.mineField[x][y] != null) this.mineField[x][y] = new MSTile(false)
+            }
         }
 
     }
