@@ -24,6 +24,22 @@ export class MineField {
             }
         }
 
+        //calculate surrounding mines counts
+        let surroundingMines = 0
+        let neighbors = [[-1,0], [-1,-1], [-1,1], [0,1], [0,-1], [1,-1], [1,0], [1,1]]
+        for(let x = 0; x < this.mineField.length; x++) {
+            for(let y = 0; y < this.mineField[x].length; y++){
+                surroundingMines = 0
+                neighbors.forEach( neighbor => {
+                    if( x + neighbor[0] >= 0 && x + neighbor[0] < this.mineField.length && y + neighbor[1] >= 0 && y + neighbor[1] < this.mineField[x].length) {
+                        if(this.mineField[x+neighbor[0]][y+neighbor[1]].isMine) {
+                            surroundingMines++
+                        }
+                    }
+                })
+                this.mineField[x][y].surroundingMines = surroundingMines
+            }
+        }
     }
 
     private generateLocations(width: number, height: number, mineCount: number): Array<number> {
