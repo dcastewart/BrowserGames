@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MSTile } from 'src/app/models/minesweeper/mstile';
 
 @Component({
   selector: 'app-tile',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class TileComponent {
 
+  @Input() msTile: MSTile = new MSTile(false)
 }
