@@ -20,7 +20,7 @@ export class MineField {
         //populate emtpy tiles
         for(let x = 0; x < this.mineField.length; x++) {
             for(let y = 0; y < this.mineField[x].length; y++){
-                if(this.mineField[x][y] != null) this.mineField[x][y] = new MSTile(false)
+                if(this.mineField[x][y] == null) this.mineField[x][y] = new MSTile(false)
             }
         }
 
@@ -53,7 +53,7 @@ export class MineField {
         //choose random index and swap with the last element
         //run again ignoring the last element moved to the end until the last mineCount elements have been selected
         for(let i = 0; i < mineCount; i++){
-            let indexToAdd = Math.random() * (possibleValues.length - i - 1)
+            let indexToAdd = Math.floor(Math.random() * (possibleValues.length - i - 1))
 
             let temp = possibleValues[indexToAdd]
             possibleValues[indexToAdd] = possibleValues[possibleValues.length - i - 1]
@@ -62,6 +62,5 @@ export class MineField {
 
         //return the last mineCount elements of array as random list
         return possibleValues.slice(-mineCount)
-
     }
 }
