@@ -7,10 +7,10 @@ import { MinesweeperComponent } from './components/minesweeper/minesweeper.compo
 
 const routes: Routes = [
   { path: 'wordle', component: WordleComponent },
+  { path: 'minesweeper', component: MinesweeperComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
-  { path: 'minesweeper', component: MinesweeperComponent },
 ];
 
 @NgModule({
